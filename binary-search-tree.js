@@ -54,6 +54,14 @@ class BinarySearchTree {
    * Returns the tree instance. Uses iteration. */
 
   insert(val) {
+    let current = this;
+
+    while (current) {
+      current = (val < current.val) ? current.left : current.right;
+
+      if (val < current.val) current.left = new Node(val);
+      if (val > current.val) current.right = new Node(val);
+    }
 
   }
 
